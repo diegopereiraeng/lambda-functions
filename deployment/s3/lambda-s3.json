@@ -1,0 +1,7 @@
+{
+    "FunctionName": "streetdemo-street-demo-dev",
+    "S3Bucket": "<+pipeline.stages.LAmbdaInfra.spec.execution.steps.apply.output.outputVariables.s3_lambda_artifacts_bucket_id>", 
+    "S3Key": "diego-lambda/s3-artifact/<+codebase.shortCommitSha>-<+pipeline.sequenceId>/lambda_deploy_package.zip", 
+    "Publish": true,
+    "Region": "us-east-1"
+}

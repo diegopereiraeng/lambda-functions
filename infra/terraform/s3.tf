@@ -12,9 +12,12 @@ resource "aws_s3_bucket" "lambda_artifacts" {
   )
 }
 
-resource "aws_s3_bucket_acl" "lambda_artifacts_acl" {
+resource "aws_s3_bucket_ownership_controls" "lambda_artifacts_ownership" {
   bucket = aws_s3_bucket.lambda_artifacts.id
-  acl    = "private" # Sets the Canned ACL to private
+  rule {
+    object_ownership = "BucketOwnerEnforced"
+  }
+  depends_on = [aws_s3_bucket.lambda_artifacts] # Ensure bucket exists before applying ownership
 }
 
 resource "aws_s3_bucket_versioning" "lambda_artifacts_versioning" {

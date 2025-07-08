@@ -1,0 +1,2 @@
+# No specific Python package dependencies for this simple Lambda.
+# This file is included for good practice and future expansion.

@@ -19,7 +19,7 @@ resource "aws_s3_bucket_acl" "lambda_artifacts_acl" {
 
 resource "aws_s3_bucket_versioning" "lambda_artifacts_versioning" {
   bucket = aws_s3_bucket.lambda_artifacts.id
-  configuration {
+  versioning_configuration {
     status = "Enabled"
   }
 }

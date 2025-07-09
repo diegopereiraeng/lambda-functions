@@ -1,0 +1,12 @@
+functionName: "<+service.name>-<+env.name>"
+handler: app.handler
+memorySize: 256
+timeout: 30
+role: "<+pipeline.stages.LAmbdaInfra.spec.execution.steps.apply.output.outputVariables.lambda_iam_role_arn>"
+
+environment:
+  variables:
+    BANK_OFFER_ID: "OFFER_JULY_PROMO"
+    DEMO_VERSION: "<+codebase.shortCommitSha>-<+pipeline.sequenceId>"
+    LOG_LEVEL: "INFO"
+    DEPLOYMENT_ENV: "<+env.name>"

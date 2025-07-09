@@ -15,8 +15,8 @@
     },
     "packageType": "Zip",
     "code": {
-        "s3Bucket": "diego-lambda-lambda-artifacts-dev",
-        "s3Key": "diego-lambda/s3-artifact/<+codebase.shortCommitSha>-<+pipeline.sequenceId>/lambda_deploy_package.zip"
+        "s3Bucket": "<+pipeline.stages.LAmbdaInfra.spec.execution.steps.apply.output.outputVariables.s3_lambda_artifacts_bucket_name>",
+        "s3Key": "<+pipeline.stages.Build_Lambda.spec.execution.steps.S3Upload.steps.S3Upload_1.spec.target>/lambda_deploy_package.zip"
         "s3ObjectVersion": "<+codebase.shortCommitSha>-<+pipeline.sequenceId>" 
     }
 }

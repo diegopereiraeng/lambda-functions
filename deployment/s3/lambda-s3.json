@@ -1,7 +1,22 @@
 {
-    "FunctionName": "streetdemo-street-demo-dev",
-    "S3Bucket": "<+pipeline.stages.LAmbdaInfra.spec.execution.steps.apply.output.outputVariables.s3_lambda_artifacts_bucket_id>", 
-    "S3Key": "diego-lambda/s3-artifact/<+codebase.shortCommitSha>-<+pipeline.sequenceId>/lambda_deploy_package.zip", 
-    "Publish": true,
-    "Region": "us-east-1"
+    "functionName": "<+service.name>-<+env.name>",
+    "handler": "app.handler",
+    "memorySize": 256,
+    "runtime": "python3.11",
+    "timeout": 30,
+    "role": "<+pipeline.stages.LAmbdaInfra.spec.execution.steps.apply.output.outputVariables.lambda_iam_role_arn>",
+    "environment": {
+        "variables": {
+            "BANK_OFFER_ID": "OFFER_JULY_PROMO",
+            "DEMO_VERSION": "<+codebase.shortCommitSha>-<+pipeline.sequenceId>",
+            "LOG_LEVEL": "INFO",
+            "DEPLOYMENT_ENV": "<+env.name>"
+        }
+    },
+    "packageType": "Zip",
+    "code": {
+        "s3Bucket": "diego-lambda-lambda-artifacts-dev",
+        "s3Key": "diego-lambda/s3-artifact/<+codebase.shortCommitSha>-<+pipeline.sequenceId>/lambda_deploy_package.zip"
+        "s3ObjectVersion": "<+codebase.shortCommitSha>-<+pipeline.sequenceId>" 
+    }
 }

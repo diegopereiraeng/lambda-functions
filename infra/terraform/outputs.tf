@@ -33,37 +33,5 @@ output "s3_lambda_artifacts_bucket_id" {
   value       = aws_s3_bucket.lambda_artifacts.id # .id also gives the name, same as .bucket
 }
 
-output "lambda_function_name" {
-  description = "The name of the created AWS Lambda function."
-  value       = aws_lambda_function.street_demo_lambda.function_name
-}
 
-output "lambda_function_arn" {
-  description = "The ARN of the created AWS Lambda function."
-  value       = aws_lambda_function.street_demo_lambda.arn
-}
 
-output "lambda_function_qualified_arn" {
-  description = "The qualified ARN of the created AWS Lambda function (includes the version)."
-  value       = aws_lambda_function.street_demo_lambda.qualified_arn
-}
-
-output "lambda_function_invoke_arn" {
-  description = "The invoke ARN of the created AWS Lambda function."
-  value       = aws_lambda_function.street_demo_lambda.invoke_arn
-}
-
-output "lambda_alias_name" {
-  description = "The name of the Lambda alias."
-  value       = aws_lambda_alias.demo_alias.name
-}
-
-output "lambda_alias_arn" {
-  description = "The ARN of the Lambda alias."
-  value       = aws_lambda_alias.demo_alias.arn
-}
-
-output "lambda_alias_invoke_arn" {
-  description = "The Invoke ARN of the Lambda alias."
-  value       = aws_lambda_alias.demo_alias.invoke_arn
-}

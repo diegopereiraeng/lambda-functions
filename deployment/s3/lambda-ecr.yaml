@@ -1,5 +1,4 @@
 functionName: "<+service.name>-<+env.name>"
-handler: app.handler
 memorySize: 256
 timeout: 30
 role: "<+pipeline.stages.LAmbdaInfra.spec.execution.steps.apply.output.outputVariables.lambda_iam_role_arn>"
